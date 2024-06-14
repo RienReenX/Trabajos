@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repetir Nombre</title>
+<script>
+function repetirNombre() {
+    var nombre = document.getElementById("nombre").value;
+    var cantidadLetras = nombre.length;
+    document.getElementById("cantidadLetras").innerText = "El nombre tiene "
+     + cantidadLetras + " letras.";
+    var resultado = "";
+    for (var i = 0; i < cantidadLetras; i++) {
+        resultado += nombre + "<br>";
+    }
+    document.getElementById("resultado").innerHTML = resultado;
+}
+</script>
+</head>
+<---Bautista Ramirez José Gael--->
+
+<body>
+<h2>Repetir Nombre</h2>
+<label for="nombre">Ingrese su nombre:</label><br>
+<input type="text" id="nombre"><br><br>
+<button onclick="repetirNombre()">Calcular y Mostrar</button><br><br>
+<div id="cantidadLetras"></div>
+<div id="resultado"></div>
+</body>
+</html>

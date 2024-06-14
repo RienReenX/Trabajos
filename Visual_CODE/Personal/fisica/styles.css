@@ -1,0 +1,154 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container, .contenedor-calc, .dk-content, #faradaysLawCalculator {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+button, .btn, .boton, .b1, .b2 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover, .boton:hover, .b1:hover, .b2:hover {
+    background-color: #0056b3;
+}
+
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.alerta {
+    display: none;
+    color: red;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.boton {
+    margin-top: 16px;
+}
+
+h3.h3 {
+    margin: 20px 0;
+}
+
+/* Specific Styles for each calculator */
+
+/* Ley de Maxwell-Gauss de Campo Eléctrico */
+.contenedor-calc .calculadora {
+    padding: 20px;
+}
+
+.contenedor-calc .primer_input, .contenedor-calc .segundo_input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contenedor-calc .content-select {
+    width: 50%;
+}
+
+.contenedor-calc .ayuda {
+    margin-top: 20px;
+}
+
+.contenedor-calc .formula-utilizada img {
+    height: 80px;
+    width: auto;
+}
+
+/* Primera Ley de Kirchhoff */
+#lck-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lck-form .input-group {
+    margin: 10px 0;
+    width: 100%;
+}
+
+#lck-form button {
+    margin-top: 20px;
+}
+
+/* Ley de Ohm */
+.dk-content .calculator-mod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dk-content .calculator-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dk-content .input-headline {
+    width: 30%;
+}
+
+.dk-content .modal-image {
+    width: 100%;
+}
+
+/* Ley de Faraday */
+#faradaysLawCalculator form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#faradaysLawCalculator .space-y-4 > div {
+    margin-bottom: 15px;
+}

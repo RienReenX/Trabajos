@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nombre en HTML</title>
+</head>
+<---Bautista Ramirez José Gael--->
+
+<body>
+<script>
+function imprimirNombre() {
+    var nombre = document.getElementById("nombre").value;
+    var output = "";
+
+    for (var i = 0; i < nombre.length; i++) {
+        output += (i + 1)+".- "+ nombre.substring(0, i +1) + "<br>";
+    }
+
+    for (var i = nombre.length ; i > 0; i--) {
+        output += i+ ".- " + nombre.substring(0, i) + "<br>";
+    }
+    
+    document.getElementById("resultado").innerHTML = output;
+}
+</script>
+
+<h2>Introduce tu nombre:</h2>
+<input type="text" id="nombre">
+<button onclick="imprimirNombre()">Imprimir Nombre</button>
+
+<div id="resultado"></div>
+
+</body>
+</html>

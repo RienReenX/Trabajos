@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nombre en HTML</title>
+</head>
+<!-- Garcia guzan jesus aleandro -->
+<body>
+<script>
+function imprimirNombre() {
+    var nombre = document.getElementById("nombre").value;
+    var output = "";
+    var cantidadLetras = nombre.length;
+    var resultado1 = "";   
+    for (var j = 0; j < cantidadLetras; j++) {
+        resultado1 += nombre + "<br>";
+    }
+    for (var i = 0; i < nombre.length; i++) {
+        output += (i + 1)+".- "+ nombre.substring(0, i +1) + "<br>";
+    }
+    for (var i = nombre.length ; i > 0; i--) {
+        output += i+ ".- " + nombre.substring(0, i) + "<br>";
+    }    
+    document.getElementById("resultado1").innerHTML = resultado1;
+    document.getElementById("cantidadLetras").innerText =
+     "El nombre tiene " + cantidadLetras + " letras y se repite  .";
+    document.getElementById("resultado").innerHTML = output;
+}
+</script>
+<h2>Introduce tu nombre:</h2>
+<input type="text" id="nombre">
+<button onclick="imprimirNombre()">Imprimir Nombre</button>
+<div id="cantidadLetras"></div>
+<div id="resultado1"></div>
+<div id="resultado"></div>
+</body>
+</html>

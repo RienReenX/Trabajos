@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Programa 06 Sueldos y salarios</title>
+</head>
+<body>
+    //BAUTISTA RAMIREZ JOSÉ GAEL
+<h2>Calculadora de Salario Neto</h2>
+    <form id="salarioForm">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="dias">Días trabajados:</label><br>
+        <input type="number" id="dias" name="dias" oninput="validarNumero(this)"><br>
+    <label for="salario">Salario diario:</label><br>
+    <input type="number" id="salario" name="salario" oninput="validarNumero(this)"><br>
+        <input type="submit" value="Calcular">
+    </form>
+    <button onclick="agregar()">Agregar otro nombre</button>
+    <p id="resultado"></p>
+    <script>
+        var acumulado = 0;
+        document.getElementById('salarioForm').onsubmit = function(event) {
+            event.preventDefault();
+            var nombre = document.getElementById('nombre').value;
+            var dias = document.getElementById('dias').value;
+            var salario = document.getElementById('salario').value;
+            var salarioTotal = salario * dias;
+            var isr = salarioTotal * 0.10;
+            var imss = salarioTotal * 0.05;
+            var salarioNeto = salarioTotal - isr - imss;
+            acumulado += salarioNeto;
+            document.getElementById('resultado').innerHTML += 'Hola, ' + nombre + '. Trabajaste ' + dias + ' días. Tu salario neto después de ISR (10%) e IMSS (5%) es ' + salarioNeto + '. Acumulado: ' + acumulado + '<br>';
+        }
+        function agregar() {
+            document.getElementById('nombre').value = '';
+            document.getElementById('dias').value = '';
+            document.getElementById('salario').value = '';
+        }
+        function validarNumero(input) {
+        input.value = input.value.replace(/[^0-9]/g, '');
+    }
+    </script>
+</body>
+</html>

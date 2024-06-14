@@ -1,0 +1,17 @@
+Pagginal promocional de especialidades:
+elementos a desarrolar
+1.-acceso principal(login)
+2.-inicio,registro,...
+3-Contener todas las especialidades del cbtis 103(incluyendo ciberseguridad)
+4.-Redes sociales de la escuela(cbwtis103.edu)
+5.-Formulario de registro de aspirantes
+6.-HTML,CSS
+7.-Exportar info de base de datos
+----------------------------------------------------------------------------
+PARTES A EVALUAR:
+-Estructura,diseño del sitio.
+-Navegacion del sitio.
+-Desarrollo del contenido de las especialidades.
+-creatividad.
+-conexion a redes sociales.
+-Documento de exportacion pdf

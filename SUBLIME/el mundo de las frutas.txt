@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>progu2ejer02</title>
+    <style>
+        body {text-align: center;}
+       
+        table {border-collapse: collapse;
+               width: 80%;
+               margin: 10px auto;}
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 4px;}
+        th {background-color: #f2f2f2;}
+        .title-box, .info-box {border: 1px solid #333;
+        	padding: 8px;
+        	background-color: #f2f2f2;
+            margin: 10px auto;
+            width: 80%;} 
+    </style>
+</head>
+<body>
+	<h1>El mundo de las frutas</h1>
+    <?php
+    $frutas = array("Manzana", "Melon", "Sandia", 
+    	"Piña", "Mango", "Platano","Papaya","Kiwi");
+       $numeros = array(0, 1, 2, 3, 4, 5,6,7);
+    ?>
+      <table>
+        <tr><?php foreach ($numeros as $numero) {
+                echo "<td>$numero</td>";}?>
+        </tr>
+        <tr><?php foreach ($frutas as $fruta) {
+                echo "<td>$fruta</td>";}?></tr>
+    </table>
+    <table>
+        <tr><th>Acción</th>
+            <th>Resultado</th></tr>
+        <tr><td>Total de frutas en el vector:</td>
+            <td><?php echo count($frutas); ?></td></tr>
+        <tr><td>Nombre de la fruta actual:</td>
+            <td><?php echo current($frutas); ?></td></tr>
+        <tr><td>Brincamos al siguiente registro el cual es:</td>
+            <td><?php echo next($frutas); ?></td></tr>
+        <tr><td>Brincamos otro registro y</td>
+            <td><?php next($frutas); ?></td></tr>
+        <tr><td>Ahora estamos en la fruta:</td>
+            <td><?php echo current($frutas); ?></td></tr>
+        <tr><td>Ahora movemos al último registro del vector:</td>
+            <td><?php echo end($frutas); ?></td></tr>
+        <tr><td>Regresamos al registro anterior que es:</td>
+            <td><?php echo prev($frutas)?></td></tr>
+        <tr><td>que esta antes de la fruta final, la cual es: </td>
+            <td><?php echo  end($frutas); ?></td></tr>
+      
+    </table>
+</body>
+</html>

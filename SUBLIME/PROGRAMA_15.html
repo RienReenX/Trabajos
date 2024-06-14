@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayor, Medio y Menor</title>
+<!-- Garcia guzan jesus aleandro -->
+<script>
+    function calcularMayorMedioMenor() {
+        var num1 = parseFloat(prompt("Ingrese el primer número:"));
+        var num2 = parseFloat(prompt("Ingrese el segundo número:"));
+        var num3 = parseFloat(prompt("Ingrese el tercer número:"));
+         if (num1 === num2 && num2 === num3) {
+            alert("Los tres números son iguales: " + num1);
+            return;
+        }
+        var mayor = Math.max(num1, num2, num3);
+        var menor = Math.min(num1, num2, num3);
+        var medio = (num1 + num2 + num3) - mayor - menor;
+        var resultado = "Mayor: " + mayor + "\n" +
+                        "Medio: " + medio + "\n" +
+                        "Menor: " + menor;
+        alert(resultado);
+    }
+</script>
+</head>
+<body>
+    <h2>Este programa calculará el Mayor, Medio y Menor de tres números</h2>
+    <button onclick="calcularMayorMedioMenor()">Calcular</button>
+</body>
+</html>

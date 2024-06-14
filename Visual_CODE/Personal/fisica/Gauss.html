@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Campo Eléctrico</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function convertToCoulombs(value, unit) {
+            switch (unit) {
+                case 'mC':
+                    return value * 1e-3;
+                case 'µC':
+                    return value * 1e-6;
+                case 'nC':
+                    return value * 1e-9;
+                default:
+                    return value;
+            }
+        }
+
+        function calc() {
+            const fuerza = parseFloat(document.getElementById('fuerza').value);
+            const carga = parseFloat(document.getElementById('carga').value);
+            const unidadCarga = document.getElementById('unidad_carga').value;
+
+            if (isNaN(fuerza) || isNaN(carga)) {
+                document.querySelector('.alerta').style.display = 'block';
+                return;
+            } else {
+                document.querySelector('.alerta').style.display = 'none';
+            }
+
+            const cargaEnCoulombs = convertToCoulombs(carga, unidadCarga);
+
+            if (cargaEnCoulombs === 0) {
+                alert('La carga eléctrica no puede ser cero.');
+                return;
+            }
+
+            const campoElectrico = fuerza / cargaEnCoulombs;
+
+            document.getElementById('resultado').value = campoElectrico.toFixed(6) + ' N/C';
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedor-calc">
+        <div class="calculadora">
+
+            <div class="partOne">
+
+                <div class="campos">
+                    <br>
+                    <label for="fuerza" class="label" id="label_1">Fuerza eléctrica (N):</label>
+
+                    <div class="primer_input">
+                        <input type="number" class="campo1" id="fuerza" placeholder="Introduce un dato" required="">
+                        <div class="content-select">
+                            <select class="select" id="unidad_fuerza">
+                                <option value="N" selected="">N</option>
+                            </select>
+                        </div>
+                    </div><br>
+
+                    <label for="carga" class="label" id="label_2">Carga eléctrica (C):</label>
+
+                    <div class="segundo_input">
+                        <input type="number" class="campo2" id="carga" placeholder="Introduce un dato" required="">
+                        <div class="content-select">
+                            <select class="select" id="unidad_carga">
+                                <option value="C" selected="">C (Coulomb)</option>
+                                <option value="mC">mC (milicoulomb)</option>
+                                <option value="µC">µC (microcoulomb)</option>
+                                <option value="nC">nC (nanocoulomb)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <span class="alerta">Completa los campos vacíos</span><br>
+                    <div class="boton" onclick="calc();" style="margin-top: 16px;">CALCULAR</div>
+                </div>
+            </div>
+
+            <div class="ayuda">
+                <div class="total">
+                    <div class="text">
+                        <h3 class="h3">RESULTADO</h3>
+                        <input type="text" class="campo4" id="resultado" style="width: 80%;" disabled="">
+                    </div>
+                </div>
+
+                <div class="formula-utilizada" id="margen-especial" style="padding-bottom: 15px;">
+                    <div class="text">
+                        <h3 class="h3">FORMULA</h3>
+                        <img decoding="async" src="https://calculosdefisica.com/wp-content/uploads/2023/01/campo_electrico_formula.png" id="imagen" alt="" style="height: 80px; width: auto;">
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="text">
+                        <h3 class="h3" style="padding-bottom: 15px;">VARIABLES DE LA FORMULA</h3>
+                        <p class="sin-margen">E = Campo eléctrico</p>
+                        <p class="sin-margen">F = Fuerza eléctrica</p>
+                        <p class="sin-margen">q = Carga eléctrica</p>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

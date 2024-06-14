@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identificar género</title>
+<script>
+    function identificarGenero() {
+        var letra = document.getElementById("letra").value.toUpperCase();
+        var resultado = document.getElementById("resultado");
+
+        if (letra === "H") {
+            resultado.textContent = "HOMBRE";
+        } else if (letra === "M") {
+            resultado.textContent = "MUJER";
+        } else {
+            resultado.textContent = "Por favor, ingresa solo la letra 'H' o la letra 'M'.";
+        }
+    }
+</script>
+</head>
+<!-- Garcia guzan jesus aleandro -->
+<body>
+    <label for="letra">Ingresa la letra 'H' o la letra 'M': </label>
+    <input type="text" id="letra">
+    <button onclick="identificarGenero()">Identificar</button>
+    <p id="resultado"></p>
+</body>
+</html>

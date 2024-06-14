@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.31/vue.global.prod.min.js"
+    type="application/javascript"></script>
+</head>
+
+<body>
+  <div id="faradaysLawCalculator" class="bg-white py-4 px-4 rounded shadow">
+    <form @submit.prevent="calculateInducedVoltage">
+      <div class="space-y-4">
+        <div>
+          <label for="numberOfLoops" class="block text-gray-700 text-sm font-bold mb-2">Número de espiras:</label>
+          <input type="text" step="any" v-model="numberOfLoops" id="numberOfLoops"
+            class="block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            placeholder="Introduzca el número de espiras" />
+        </div>
+        <div>
+          <label for="magneticFlux" class="block text-gray-700 text-sm font-bold mb-2">Cambio del flujo magnético
+            (Wb):</label>
+          <input type="text" step="any" v-model="magneticFlux" id="magneticFlux"
+            class="block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            placeholder="Introduzca el cambio del flujo magnético" />
+        </div>
+        <div>
+          <label for="timeChange" class="block text-gray-700 text-sm font-bold mb-2">Cambio de tiempo (s):</label>
+          <input type="text" step="any" v-model="timeChange" id="timeChange"
+            class="block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+            placeholder="Introduzca el cambio de tiempo" />
+        </div>
+        <div class="flex">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit">Calcular</button>
+          <button @click="resetForm" type="button"
+            class="ml-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2 focus:outline-none focus:shadow-outline">Restablecer</button>
+        </div>
+      </div>
+    </form>
+    <div class="">
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2">Tensión inducida (V):</label>
+        <input type="text" readonly
+          class="block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none"
+          :value="Number(inducedVoltage).toFixed(10)" />
+      </div>
+    </div>
+    <div class="border-wrap">
+      <img src="https://cursoparalaunam.com/wp-content/uploads/2020/03/ley-de-faraday-1.jpg" alt="Faraday"
+        style="width:100%;" class="modal-image">
+    </div>
+  </div>
+ 
+
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          numberOfLoops: 0,
+          magneticFlux: 0,
+          timeChange: 0,
+          inducedVoltage: 0, // Resultado inicializado a 0
+        };
+      },
+      methods: {
+        calculateInducedVoltage() {
+          const e = -1 * this.numberOfLoops * (this.magneticFlux / this.timeChange);
+          this.inducedVoltage = e;
+        },
+        resetForm() {
+          this.numberOfLoops = 0;
+          this.magneticFlux = 0;
+          this.timeChange = 0;
+          this.inducedVoltage = 0; // Restablecer el resultado a 0
+        }
+      }
+    }).mount('#faradaysLawCalculator');
+  </script>
+
+
+</body>
+
+</html>

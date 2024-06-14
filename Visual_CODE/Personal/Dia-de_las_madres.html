@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia De Las Madres</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(133, 0, 0);
+            font-family: "Pacifico", cursive;
+            width: 100%;
+            height: 100%;
+        }
+
+        #text {
+
+            color: aliceblue;
+            text-shadow: 0px 0px 10px rgb(0, 0, 0);
+            z-index: 1000;
+
+        }
+
+        .Container {
+            margin: 0 auto;
+            text-align: center;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .contenedor {
+            position: relative;
+        }
+
+        .size {
+            width: 4% !important;
+
+
+        }
+
+        .size2 {
+
+            width: 100%;
+            max-width: 6rem;
+            display: none;
+
+        }
+
+        .Garlands {
+            height: 8rem;
+            width: 100%;
+            transform: translateX(130px) translateY(195px) rotate(13deg);
+            max-width: 7.1rem;
+            display: none;
+
+        }
+
+        .Garlands-Reverse {
+            transform: scaleX(-1) translateX(-130px) translateY(195px) rotate(13deg);
+            width: 100%;
+            height: 8rem;
+            margin: 0;
+            max-width: 7.1rem;
+            display: none;
+        }
+
+        .contenedor img {
+            animation: animate 15s linear infinite;
+            animation-duration: calc(125s / var(--i));
+            z-index: 0;
+
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(135vh) scale(0);
+            }
+
+            100% {
+                transform: translateY(-10vh) scale(1);
+            }
+        }
+
+        .Section-Main {
+
+            margin: 5rem 8rem;
+            padding: 4rem 0;
+            border: 10px solid white;
+            border-radius: 2rem;
+
+
+        }
+
+        .Flex-Content {
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse !important;
+            align-items: center;
+            flex-wrap: wrap !important;
+
+        }
+
+        .Flex-Text {
+            padding: 0 5rem;
+            text-align: center;
+        }
+
+        .Text-Low {
+            font-family: cursive;
+            color: rgb(228, 228, 228);
+            text-transform: uppercase;
+            text-align: end;
+            padding: 3rem 0;
+        }
+
+        .Image-Flower {
+            transform: scaleX(-1);
+
+        }
+
+        .Styles-TITTLE {
+            text-align: center;
+            color: rgb(229, 155, 233);
+
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 0 auto;
+            filter: drop-shadow(0px 0px 50px red);
+        }
+
+        .heart::before,
+        .heart::after {
+            position: absolute;
+            margin: 2rem 0;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background-color: red;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            filter: drop-shadow(0px 0px 50px red);
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .Text-Description {
+            margin: 3rem 0;
+            color: rgb(255, 118, 118);
+            font-family: cursive;
+            text-align: center;
+
+        }
+
+        @media (max-width : 900px) and (min-width : 300px) {
+
+            #text {
+                font-size: 1.3rem;
+                color: rgb(159, 210, 255);
+                text-shadow: 0px 0px 10px rgb(0, 0, 0);
+                z-index: 1000;
+
+            }
+
+            .Image-Flower {
+                transform: scaleX(-1);
+
+                width: 100%;
+                height: 100%;
+                max-width: 350px;
+                max-height: 400px;
+            }
+
+            .Garlands {
+
+                display: none;
+            }
+
+            .Garlands-Reverse {
+
+                display: none;
+            }
+
+            .Section-Main {
+                margin: 0 0 !important;
+                padding: 4rem 0;
+                border: 10px solid white;
+                border-radius: 2rem;
+                width: 100% !important;
+            }
+
+        }
+
+        .Flex-Content {
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+        .Styles-TITTLE {
+            color: rgb(229, 155, 233);
+            font-size: 1.2rem;
+        }
+
+        .size {
+            width: 2%;
+        }
+
+        .Flex-Text {
+            padding: 0 0;
+        }
+
+        @media (max-width : 1024px) and (min-width : 768px) {
+
+            .Flex-Content {
+                display: flex;
+                justify-content: center;
+                flex-direction: row-reverse;
+                align-items: center;
+                flex-wrap: wrap;
+
+            }
+
+            .Section-Main {
+
+                margin: 6rem 0 !important;
+                padding: 4rem 0;
+                border: 10px solid white;
+                border-radius: 2rem;
+                width: 100% !important;
+            }
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        const texts = ['Holis Mami', 'Un Mini Detallito Para Ustes', 'Feliz Dia De Las Madres', 'Gfita'];
+        let count = 0;
+        let index = 0;
+
+        function type() {
+            const currentText = texts[count];
+            const letter = currentText.slice(0, ++index);
+
+            document.getElementById('text').textContent = letter;
+
+            if (letter.length === currentText.length) {
+                setTimeout(erase, 2000);
+            } else {
+                setTimeout(type, 200);
+            }
+        }
+
+        function erase() {
+            const currentText = texts[count];
+            const letter = currentText.slice(0, --index);
+
+            document.getElementById('text').textContent = letter;
+
+            if (letter.length === 0) {
+                count++;
+                if (count === texts.length) {
+                    count = 0;
+                }
+                setTimeout(type, 500);
+            } else {
+                setTimeout(erase, 100);
+            }
+        }
+        type();
+    </script>
+    <div class="Container">
+        <h1 id="text">Hola</h1>
+    </div>
+    <div class="contenedor">
+        <img style="--i:11;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-1 size">
+        <img style="--i:12;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-2 size">
+        <img style="--i:24;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-3 size">
+        <img style="--i:10;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-4 size">
+        <img style="--i:14;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-5 size">
+        <img style="--i:23;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-6 size">
+        <img style="--i:18;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-7 size">
+        <img style="--i:16;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-9 size">
+        <img style="--i:19;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-10 size">
+        <img style="--i:20;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-11 size">
+        <img style="--i:22;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-12 size">
+        <img style="--i:25;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-13 size">
+        <img style="--i:18;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-14 size">
+        <img style="--i:21;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-15 size">
+        <img style="--i:15;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:13;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-15 size">
+        <img style="--i:26;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:17;"
+            src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png" alt=""
+            class="flor-15 size">
+        <img style="--i:13;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:18;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:30;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:32;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+        <img style="--i:35;"
+            src="https://png.pngtree.com/png-clipart/20231210/original/pngtree-beautiful-blue-flower-png-image_13809761.png"
+            alt="" class="flor-15 size">
+    </div>
+
+    <img class="Garlands " src="garlands.png " alt="">
+    <img class="Garlands-Reverse" src="garlands.png " alt="">
+    <img class="Garlands " src="garlands.png " alt="">
+    <img class="Garlands-Reverse" src="garlands.png " alt="">
+    <img class="Garlands " src="garlands.png " alt="">
+    <img class="Garlands-Reverse" src="garlands.png " alt="">
+    <img class="Garlands " src="garlands.png " alt="">
+    <img class="Garlands-Reverse" src="garlands.png " alt="">
+    <img class="Garlands " src="garlands.png " alt="">
+    <img class="Garlands-Reverse" src="garlands.png " alt="">
+    <img class="Garlands " src="garlands.png " alt="">
+
+    <main class="Section-Main">
+
+        <div class="Flex-Content">
+            <div class="Flex-Text">
+                <span class="Text-Low">Te Tengo Un Mensaje Para Usted</span>
+                <h2 class="Styles-TITTLE">Eres La Mejor Madre Del Mundo </h2>
+                <div class="heart">
+                    <img class="size2"
+                        src="https://2.bp.blogspot.com/_a5mK001oySU/TS2h0VMFYTI/AAAAAAAAwL0/Uod85gL26QA/s1600/10.png"
+                        alt="">
+                </div>
+                <p class="Text-Description">Tal vez me tade en hacerte este detalle pero... &#x1F389;<br>Eres la
+                    mejor mama de todo el mundo &#x1F973;
+                    <br> Siempre seras lo mas importante en la familia<br> &#x2728; Te agradezco por tu ayuda y compañia
+                    &#x2728;
+                    <br>Te agradezco por todos los momentos buenos y malos en los que has estado a mi lado &#x1F389;
+                    <br>Te deseo Muchas bendiciones y bienestar para ti Madre
+                </p>
+            </div>
+
+            <img class="Image-Flower"
+                src="https://images.vexels.com/media/users/3/296847/isolated/preview/02063adf2b695ef84d4e4bff1fa42308-trazo-de-color-de-flores-rosas-vintage.png"
+                alt="">
+        </div>
+    </main>
+
+</body>
+
+
+</html>

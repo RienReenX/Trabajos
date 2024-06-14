@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interés Compuesto</title>
+</head>
+<---Bautista Ramirez José Gael--->
+<body>
+<h2>Interés Compuesto</h2>
+<form id="formulario">
+  <label for="capital">Capital inicial:</label>
+  <input type="number" id="capital" name="capital" step="0.01" min="0">
+  <label for="periodos">Número de periodos:</label>
+  <input type="number" id="periodos" name="periodos" min="1">
+  <button type="button" onclick="calcularInteres()">Calcular</button>
+</form>
+<div id="resultado"></div>
+<script>
+function calcularInteres() {
+  var capitalInicial = parseFloat(document.getElementById("capital").value);
+  var periodos = parseInt(document.getElementById("periodos").value);
+  if (isNaN(capitalInicial) || isNaN(periodos) || capitalInicial <= 0 || periodos < 1) {
+    document.getElementById("resultado").innerHTML = "Por favor, ingrese valores válidos.";
+    return;
+  } 
+  var tasaInteres = 0.10; 
+  var resultadoHTML = 
+  "<table><tr><th>Periodo</th><th>Capital</th><th>Interés</th><th>Capital Final</th></tr>"; 
+  var capitalFinal = capitalInicial;
+  for (var i = 1; i <= periodos; i++) {
+    var interes = capitalFinal * tasaInteres;
+    capitalFinal += interes;
+    resultadoHTML += "<tr><td>" + i + "</td><td>$" + capitalFinal.toFixed(2) + "</td><td>$" 
+    + interes.toFixed(2) + "</td><td>$" + capitalFinal.toFixed(2) + "</td></tr>";
+  }
+  resultadoHTML += "</table>";  
+  document.getElementById("resultado").innerHTML = resultadoHTML;
+}
+</script>
+
+</body>
+</html>

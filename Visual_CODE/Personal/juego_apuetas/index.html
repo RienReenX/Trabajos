@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Racing Betting Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Horse Racing Betting Game</h1>
+    <div>
+        <label for="betAmount">Bet Amount: $</label>
+        <input type="number" id="betAmount" min="1" value="10">
+    </div>
+    <div>
+        <label for="horse">Choose your horse: </label>
+        <select id="horse">
+            <option value="1">Horse 1</option>
+            <option value="2">Horse 2</option>
+            <option value="3">Horse 3</option>
+        </select>
+    </div>
+    <button id="startRace">Start Race</button>
+    <div id="raceTrack">
+        <div class="horse" id="horse1">🐎</div>
+        <div class="horse" id="horse2">🐎</div>
+        <div class="horse" id="horse3">🐎</div>
+    </div>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

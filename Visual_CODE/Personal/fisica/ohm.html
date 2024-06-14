@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dk-content">
+        <div class="calculator-mod">
+            <div class="tab-calc-content">
+                <div class="single-dk-calc-cont">
+                    <div class="dk-calc-wrap">
+                        <div class="inner-box">
+                            <div class="calculator-col col-md-6">
+                                <div class="calculator">
+                                    <div class="voltage">
+                                        <span class="input-headline">Voltaje (V)</span>
+                                        <div class="calculator-input">
+                                            <span class="input-label" title="volt">V</span>
+                                            <input placeholder="Ingresar voltaje..." name="voltage" id="voltage" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="current">
+                                        <span class="input-headline">Corriente (I)</span>
+                                        <div class="calculator-input">
+                                            <span class="input-label" title="ampere">A</span>
+                                            <input placeholder="Ingresar corriente..." name="current" id="current" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="resistance">
+                                        <span class="input-headline">Resistencia (R)</span>
+                                        <div class="calculator-input">
+                                            <span class="input-label" title="ohm">&Omega;</span>
+                                            <input placeholder="Ingresar resistencia..." name="resistance" id="resistance" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="power">
+                                        <span class="input-headline">Potencia (P)</span>
+                                        <div class="calculator-input">
+                                            <span class="input-label" title="watt">W</span>
+                                            <input placeholder="Ingresar potencia..." name="power" id="power" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix calculate-buttons">
+                                        <button class="b1 button pull-left" name="calculate" type="button" value="Calculate" onclick="results()">Calcular</button>
+                                        <button class="b2 button pull-right" name="reset" type="button" value="Reset" onclick="reset()">Restablecer</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="calculator-col col-md-6">
+                                <div class="border-wrap">
+                                    <img src="https://www.digikey.com.mx/-/media/Images/Marketing/Resources/Calculator/ohms-law-chart.png?la=es-MX&ts=cce8569b-bc91-4da4-845d-671c3bfe367d" alt="ohm law" style="width:100%;" class="modal-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+// Document ready
+$(document).ready(function () {
+
+    // Call list categories for recommended products
+    listCategoriesLinks();
+
+    $(".sponsored-content-wrap .mt-1").on('click', 'a', function (event) {
+        LinkClickedPushToGTM(event, 'Click Supplier Logo');
+    });
+
+    $("#recommended-products-wrap-id").on('click', 'a', function (event) {
+        LinkClickedPushToGTM(event, 'Select Related Products');
+    });
+
+    $(document).on('click', '.right-related-tool-container a, .related-tool-container a', function (event) {
+        LinkClickedPushToGTM(event, 'Link to Related Tools');
+    });
+});
+
+function results() {
+    var vol = document.getElementById("voltage").value;
+    var cur = document.getElementById("current").value;
+    var res = document.getElementById("resistance").value;
+    var pow = document.getElementById("power").value;
+
+    if (vol != "") {
+        if (cur != "") {
+            var volcurres = vol / cur;
+            document.getElementById("resistance").value = parseFloat(volcurres.toFixed(10));
+            var volcurpow = vol * cur;
+            document.getElementById("power").value = parseFloat(volcurpow.toFixed(10));
+        }
+        else if (res != "") {
+            var volresres = vol / res;
+            document.getElementById("current").value = parseFloat(volresres.toFixed(10));
+            var volrespow = vol * vol / res;
+            document.getElementById("power").value = parseFloat(volrespow.toFixed(10));
+        }
+        else if (pow != "") {
+            var volpowcur = pow / vol;
+            document.getElementById("current").value = parseFloat(volpowcur.toFixed(10));
+            var volpowres = vol * vol / pow;
+            document.getElementById("resistance").value = parseFloat(volpowres.toFixed(10));
+        }
+    }
+    else if (cur != "") {
+        if (res != "") {
+            var curresvol = cur * res;
+            document.getElementById("voltage").value = parseFloat(curresvol.toFixed(10));
+            var currespow = cur * cur * res;
+            document.getElementById("power").value = parseFloat(currespow.toFixed(10));
+        }
+        else if (pow != "") {
+            var curpowvol = pow / cur;
+            document.getElementById("voltage").value = parseFloat(curpowvol.toFixed(10));
+            var curpowres = pow / cur / cur;
+            document.getElementById("resistance").value = parseFloat(curpowres.toFixed(10));
+        }
+    }
+    else if (res != "") {
+        if (pow != "") {
+            var respowvol = Math.sqrt(pow * res);
+            document.getElementById("voltage").value = parseFloat(respowvol.toFixed(10));
+            var respowcur = Math.sqrt(pow / res);
+            document.getElementById("current").value = parseFloat(respowcur.toFixed(10));
+        }
+    }
+}
+function reset() {
+    document.getElementById("voltage").value = "";
+    document.getElementById("current").value = "";
+    document.getElementById("resistance").value = "";
+    document.getElementById("power").value = "";
+    document.getElementById("voltage").focus;
+}
+
+$(function () {
+    $('input[type=number]').on("wheel DOMMouseScroll mousewheel MozMousePixelScroll", function (event) {
+        event.preventDefault();
+        $this = $(this);
+    });
+});
+
+
+// Define name of view key for all languages
+var viewSiteArray = { en: "View", da: "Vis", de: "Anzeigen", es: "Ver", fi: "Näytä", fr: "Voir", he: "הצגה", it: "Visualizza", ja: "表示", ko: "이용 약관", nl: "Bekijk", no: "Vis", pl: "Wyświetl", sv: "Visa", zh: "查看", cs: "Zobrazit", hu: "Tovább", ro: "Vizualizare", th: "มุมมอง", pt: "Ver" };
+
+// Get no photo
+var noPhoto = "https://media.digikey.com/Photos/NoPhoto/pna_en.jpg";
+const langDatas = ['cs', 'da', 'de', 'es', 'fi', 'fr', 'he', 'hu', 'it', 'ja', 'ko', 'nl', 'no', 'pl', 'pt', 'ro', 'sv', 'sch', 'tch', 'th', 'zh', 'zht'];
+if (langDatas.indexOf(__headerData.lang.toLowerCase()) >= 0) {
+    noPhoto = "https://media.digikey.com/Photos/NoPhoto/pna_" + __headerData.lang + ".jpg";
+}
+
+// Get list categories
+function listCategoriesLinks() {
+    $.ajax({
+        url: window.location.origin + "/" + __headerData.lang + "/api/calculator/categories-list",
+        type: "POST",
+        data: JSON.stringify({
+            Site: __headerData.site,
+            Lang: __headerData.lang,
+            Cur: __headerData.cur,
+            CategoryIds: ["615", "634", "633", "54", "937"],
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (dataResult) {
+            var output = "";
+            if (dataResult.length >= 0) {
+                // Get value of View follow site/language
+                let viewName = "View";
+                for (var key in viewSiteArray) {
+                    if (__headerData.lang.toLowerCase() == key) {
+                        viewName = viewSiteArray[key];
+                    }
+                }
+                for (var i in dataResult) {
+                    let imageUrl = noPhoto;
+                    if (dataResult[i].imageUrl) {
+                        imageUrl = dataResult[i].imageUrl;
+                    }
+                    output += '<li>' + '<div class="related-product">'
+                        + '<div class="image-container">'
+                        + '<a class="dkc-related_item" href="' + dataResult[i].url + '">'
+                        + '<img class="dkc-related-product_img" src ="' + imageUrl + '"  alt="' + dataResult[i].name + '"/>'
+                        + '</a>' + '</div>'
+                        + '<span class="dkc-related_itemTitle input-headline">' + dataResult[i].name + '</span>'
+                        + '<a class="dkc-related_item" href="' + dataResult[i].url + '">'
+                        + '<button class="button primary btn-normal">' + viewName + '</button>'
+                        + '</a>' + '</div>' + '</li>';
+                }
+            }
+
+            output += "";
+            if ($('#recommended-products-wrap-id').length > 0) {
+                $("#recommended-products-wrap-id ul").append(output);
+            }
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var calcInputs = document.querySelectorAll('.calculator input');
+    for (var i = 0; i < calcInputs.length; i++) {
+        calcInputs[i].addEventListener("keypress", function (e) {
+            if (e.charCode >= 48 && e.charCode <= 57 || (e.charCode == 9 || e.charCode == 8 || e.charCode == 0 || e.charCode == 13 || e.charCode == 46 || e.charCode == 45)) {
+                return;
+            } else {
+                e.preventDefault();
+            }
+        });
+    };
+});
+
+// Custom modal
+$('.modal-image').on('click', function () {
+    location.hash = '#modal';
+    $('body').addClass('overflow-hidden');
+    $('#imageModal').addClass('open-modal');
+    $('#the-img-modal').attr('src', $(this).attr('src'));
+    $('#caption').text(this.alt);
+});
+
+// Close the modal
+$('.close-modal, #the-img-modal, #imageModal').on('click', function () {
+    history.replaceState({}, document.title, window.location.href.split('#')[0]);
+    $('body').removeClass('overflow-hidden');
+    $('#imageModal').removeClass('open-modal');
+
+    document.body.style.zoom = "100%";
+});
+
+document.addEventListener('error', function (event) {
+    if (event.target.className !== 'dkc-related-product_img') return;
+    event.target.src = noPhoto;
+}, true);
+
+function GTMEventPush(clickText) {
+    var dataLayer = dataLayer || [];
+    dataLayer.push({
+        'event': 'resources_click',
+        'click_text': clickText
+    })
+}
+
+function GTMPageViewPush() {
+    var dataLayer = dataLayer || [];
+    dataLayer.push({
+        'event': 'page_view',
+        'content_group1': 'Resources',
+        'content_group2': 'Calculator Library',
+        'page_title': 'Conversion Calculator Ohms',
+        'page_type': 'COV',
+        'page_sub_type': 'OHM',
+        'page_id': $("meta[name='digikey.fss.guid']").attr("content")
+    });
+}
+
+function LinkClickedPushToGTM(event, clickText) {
+    // Don't follow the link
+    event.preventDefault();
+    // Adding google tag manager event push
+    GTMEventPush(clickText);
+    window.location = event.currentTarget.href;
+}</script>
+</body>
+</html>

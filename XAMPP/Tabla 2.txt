@@ -1,0 +1,31 @@
+MariaDB [bautista_rmz_jose_gael]>  CREATE TABLE Alum103_SS(
+id int(5) unsigned not null auto_increment primary key,
+Nombre VARCHAR(40),
+Edad int(2),
+Semestre int(3),
+Especialidad VARCHAR(20),
+Turno VARCHAR(10),
+Grupo VARCHAR(1),
+Tiempo_serv DATE,
+Tipo_trabajo TEXT,
+Fecha_ini_SS DATE,
+Feacha_fin_SS DATE);
+
+  
+
+ INSERT INTO Alum103_SS (Nombre,Edad,Semestre,Especialidad,Turno,Grupo,Tiempo_serv,Tipo_trabajo,Fecha_ini_SS,Feacha_fin_SS) VALUES
+('Angel Manuel',17,04,'Programacion','Vespertino','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Gael<3',16,04,'Recursos Humanos','Mañana','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Azul Nahomi',16,04,'Clinicos','Vespertino','B','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Maria Fernanda',16,04,'Quimicos','Mañana','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Sergio',17,04,'Quimicos','Mañana','B','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Tomas',16,04,'Programacion','Mañana','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Jesus',16,04,'Clinicos','Vespertino','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Rebullosa',17,04,'Programacion','Vespertino','B','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Carlos Juan',16,04,'Recursos','Mañana','B','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Toñito',16,04,'Logistica','Vespertino','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Eric Alejandro',17,04,'Logistica','Vespertino','A','2024-02-29','No asignado','2024-09-15','2025-07-15'),
+('Esteban Tellez Gonzales',17,04,'Logistica','Vespertino','A','2024-02-29','No asignado','2024-09-15','2025-07-15');
+
+
+

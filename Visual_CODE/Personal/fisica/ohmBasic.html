@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ley de Ohm</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Ley de Ohm</h2>
+        <div class="input-group">
+            <label for="voltaje">Voltaje (V):</label>
+            <input type="number" id="voltaje" placeholder="Ingrese el voltaje">
+        </div>
+        <div class="input-group">
+            <label for="corriente">Corriente (I):</label>
+            <input type="number" id="corriente" placeholder="Ingrese la corriente">
+        </div>
+        <div class="input-group">
+            <label for="resistencia">Resistencia (R):</label>
+            <input type="number" id="resistencia" placeholder="Ingrese la resistencia">
+        </div>
+        <button onclick="calcularOhm()">Calcular</button>
+        <div class="result" id="resultado"></div>
+        <div class="calculator-col col-md-6">
+            <div class="border-wrap">
+                <img src="https://cdn.todamateria.com/imagenes/ley-de-ohm1-0-cke-edited-1.jpg" alt="Ley de Ohm" style="width:100%;" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcularOhm() {
+            let voltaje = parseFloat(document.getElementById('voltaje').value);
+            let corriente = parseFloat(document.getElementById('corriente').value);
+            let resistencia = parseFloat(document.getElementById('resistencia').value);
+            let resultado = document.getElementById('resultado');
+
+            if (!isNaN(voltaje) && !isNaN(corriente) && isNaN(resistencia)) {
+                resistencia = voltaje / corriente;
+                resultado.innerText = `Resistencia: ${resistencia.toFixed(2)} Ω`;
+            } else if (!isNaN(voltaje) && isNaN(corriente) && !isNaN(resistencia)) {
+                corriente = voltaje / resistencia;
+                resultado.innerText = `Corriente: ${corriente.toFixed(2)} A`;
+            } else if (isNaN(voltaje) && !isNaN(corriente) && !isNaN(resistencia)) {
+                voltaje = corriente * resistencia;
+                resultado.innerText = `Voltaje: ${voltaje.toFixed(2)} V`;
+            } else {
+                resultado.innerText = "Por favor, ingrese dos valores.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            margin: 20px 0;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Compras</h1>
+        <label for="articulo">Nombre del Artículo:</label>
+        <input type="text" id="articulo" placeholder="Ingrese el nombre del artículo">
+
+        <label for="cantidad">Cantidad de Artículos:</label>
+        <input type="number" id="cantidad" placeholder="Ingrese la cantidad de artículos">
+
+        <label for="precio">Precio del Artículo:</label>
+        <input type="number" id="precio" placeholder="Ingrese el precio del artículo">
+
+        <button onclick="calcularTotal()">Calcular Total</button>
+
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            var articulo = document.getElementById('articulo').value;
+            var cantidad = document.getElementById('cantidad').value;
+            var precio = document.getElementById('precio').value;
+
+            if (articulo === "" || cantidad === "" || precio === "") {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            cantidad = parseFloat(cantidad);
+            precio = parseFloat(precio);
+            var totalSinIVA = cantidad * precio;
+            var iva = totalSinIVA * 0.16;
+            var totalConIVA = totalSinIVA + iva;
+
+            var resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+                <p><strong>Artículo:</strong> ${articulo}</p>
+                <p><strong>Cantidad:</strong> ${cantidad}</p>
+                <p><strong>Precio por Artículo:</strong> $${precio.toFixed(2)}</p>
+                <p><strong>Total sin IVA:</strong> $${totalSinIVA.toFixed(2)}</p>
+                <p><strong>IVA (16%):</strong> $${iva.toFixed(2)}</p>
+                <p><strong>Total con IVA:</strong> $${totalConIVA.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

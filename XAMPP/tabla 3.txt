@@ -1,0 +1,16 @@
+MariaDB [bautista_rmz_jose_gael]> CREATE TABLE Empresas103_SS(
+id int(5) unsigned not null auto_increment primary key,
+Nombre_empresa VARCHAR(50),
+Esp_requerida VARCHAR(20),
+Horario_ini DATETIME,
+Horario_fin DATETIME,
+Domicilio VARCHAR(120),
+Num_telefonico INT(10),
+Correo_contacto VARCHAR(40),
+Sitio_web VARCHAR(50),
+RFC VARCHAR(13),
+Gerente VARCHAR(40),
+Giro_comercial VARCHAR(60));
+
+
+ INSERT INTO empresas103_ss (Nombre_empresa,Esp_requerida,Horario_ini,Horario_fin,Domicilio,Num_telefonico,Correo_contacto,Sitio_web,RFC,Gerente,Giro_comercial) VALUES 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ley de Kirchhoff</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Ley de Kirchhoff</h2>
+        <div class="input-group">
+            <label for="voltaje">Voltaje de la fuente (V):</label>
+            <input type="number" id="voltaje" placeholder="Ingrese el voltaje">
+        </div>
+        <div class="input-group">
+            <label for="resistencia1">Resistencia 1 (Ω):</label>
+            <input type="number" id="resistencia1" placeholder="Ingrese la resistencia 1">
+        </div>
+        <div class="input-group">
+            <label for="resistencia2">Resistencia 2 (Ω):</label>
+            <input type="number" id="resistencia2" placeholder="Ingrese la resistencia 2">
+        </div>
+        <div class="input-group">
+            <label for="resistencia3">Resistencia 3 (Ω):</label>
+            <input type="number" id="resistencia3" placeholder="Ingrese la resistencia 3">
+        </div>
+        <button onclick="calcularSerie()">Calcular en Serie</button>
+        <button onclick="calcularParalelo()">Calcular en Paralelo</button>
+        <div class="result" id="resultado"></div>
+        <div class="calculator-col col-md-6">
+            <div class="border-wrap">
+                <img src="https://transistores.info/wp-content/uploads/2021/01/Diagrama-de-circuito-de-la-ley-de-Kirchhoff-1.jpg.webp" alt="ohm law" style="width:100%;" class="modal-image">
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function calcularSerie() {
+            let voltaje = parseFloat(document.getElementById('voltaje').value);
+            let resistencia1 = parseFloat(document.getElementById('resistencia1').value);
+            let resistencia2 = parseFloat(document.getElementById('resistencia2').value);
+            let resistencia3 = parseFloat(document.getElementById('resistencia3').value);
+
+            if (isNaN(voltaje) || isNaN(resistencia1) || isNaN(resistencia2) || isNaN(resistencia3)) {
+                document.getElementById('resultado').innerText = "Por favor, ingrese todos los valores.";
+                return;
+            }
+
+            let resistenciaTotal = resistencia1 + resistencia2 + resistencia3;
+            let corriente = voltaje / resistenciaTotal;
+            let voltaje1 = corriente * resistencia1;
+            let voltaje2 = corriente * resistencia2;
+            let voltaje3 = corriente * resistencia3;
+
+            document.getElementById('resultado').innerText = `En serie:\nCorriente: ${corriente.toFixed(2)} A\nVoltaje en R1: ${voltaje1.toFixed(2)} V\nVoltaje en R2: ${voltaje2.toFixed(2)} V\nVoltaje en R3: ${voltaje3.toFixed(2)} V`;
+        }
+
+        function calcularParalelo() {
+            let voltaje = parseFloat(document.getElementById('voltaje').value);
+            let resistencia1 = parseFloat(document.getElementById('resistencia1').value);
+            let resistencia2 = parseFloat(document.getElementById('resistencia2').value);
+            let resistencia3 = parseFloat(document.getElementById('resistencia3').value);
+
+            if (isNaN(voltaje) || isNaN(resistencia1) || isNaN(resistencia2) || isNaN(resistencia3)) {
+                document.getElementById('resultado').innerText = "Por favor, ingrese todos los valores.";
+                return;
+            }
+
+            let conductanciaTotal = (1 / resistencia1) + (1 / resistencia2) + (1 / resistencia3);
+            let resistenciaTotal = 1 / conductanciaTotal;
+            let corrienteTotal = voltaje / resistenciaTotal;
+            let corriente1 = voltaje / resistencia1;
+            let corriente2 = voltaje / resistencia2;
+            let corriente3 = voltaje / resistencia3;
+
+            document.getElementById('resultado').innerText = `En paralelo:\nCorriente total: ${corrienteTotal.toFixed(2)} A\nCorriente en R1: ${corriente1.toFixed(2)} A\nCorriente en R2: ${corriente2.toFixed(2)} A\nCorriente en R3: ${corriente3.toFixed(2)} A`;
+        }
+    </script>
+</body>
+</html>
